@@ -11,12 +11,14 @@ struct nodo{
 
 void menu(void);
 void mostrarDatos(nodo *pInicio);
+void BuscarDato(nodo *pInicio, string libro);
 
 int main() {
     nodo *pInicio = NULL;
     nodo *nuevo = NULL;
 
     int opcion=0;
+    string libro;
 
     do{
         menu();
@@ -42,6 +44,11 @@ int main() {
             case 2:
                 mostrarDatos(pInicio);
                 break;
+            case 3:
+                cout<<"digite libro a buscar: "<<endl;
+                cin>>libro;
+                BuscarDato(pInicio,libro);
+                break;
             case 0:
                 break;
         }
@@ -56,6 +63,7 @@ void menu(void){
     cout<<"Menu principal"<<endl;
     cout<<"1) agregar libro"<<endl;
     cout<<"2) revisar catalogo"<<endl;
+    cout<<"3) buscar libro"<<endl;
     cout<<"0) salir"<<endl;
 }
 
@@ -67,5 +75,18 @@ void mostrarDatos(nodo *pInicio){
         cout<<"libro: "<<pInicio->titulo<<endl;
         cout<<"paginas: "<<pInicio->numPaginas<<endl;
         mostrarDatos(pInicio->sig);
+    }
+}
+
+void BuscarDato(nodo *pInicio, string libro){
+    if(!pInicio){
+        return;
+    }
+    else{
+        if(libro == pInicio->titulo){
+            cout<<"el libro posee "<<pInicio->numPaginas<<" paginas"<<endl;
+            cout<<endl;
+        }
+        BuscarDato(pInicio->sig, libro);
     }
 }

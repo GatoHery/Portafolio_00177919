@@ -9,7 +9,7 @@ struct nodo{
 
 void menu(void);
 void mostrarDatos(nodo *pInicio);
-void eliminarDatos(nodo *pInicio, int numero,int contador);
+void eliminarDatos(nodo *pInicio, int numero);
 
 int main() {
     nodo *pInicio = NULL;
@@ -44,7 +44,7 @@ int main() {
             case 3:
                 cout<<"numero a eliminar"<<endl;
                 cin>>numero;
-                eliminarDatos(pInicio,numero,0);
+                eliminarDatos(pInicio,numero);
                 break;
             case 0:
                 break;
@@ -58,8 +58,8 @@ int main() {
 
 void menu(void){
     cout<<"Menu principal"<<endl;
-    cout<<"1) agregar libro"<<endl;
-    cout<<"2) revisar catalogo"<<endl;
+    cout<<"1) agregar numero"<<endl;
+    cout<<"2) leer lista"<<endl;
     cout<<"3) eliminar nodo"<<endl;
     cout<<"0) salir"<<endl;
 }
@@ -74,18 +74,19 @@ void mostrarDatos(nodo *pInicio){
     }
 }
 
-void eliminarDatos(nodo *pInicio, int numero, int contador){
+void eliminarDatos(nodo *pInicio, int numero){
     if(!pInicio){
         return;
     }
     else{
-        if(pInicio->sig != NULL ){
+        if(pInicio->numero == numero){
+            pInicio = pInicio->sig;
+        }
+        else if(pInicio->sig != NULL ){
             if(numero == pInicio->sig->numero){
                 pInicio->sig = pInicio->sig->sig;
             }
-
-
         }
-        eliminarDatos(pInicio->sig,numero, contador+1);
+        eliminarDatos(pInicio->sig,numero);
     }
 }
