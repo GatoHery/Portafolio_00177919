@@ -13,55 +13,57 @@ void Menu();
 void MostrarLibros(nodo *lista);
 void MostrarPares(nodo *lista);
 void MostrarImpares(nodo *lista);
+void mostarInvertido(nodo *lista);
 
 int main() {
-nodo *pInicio = NULL;
-nodo *nuevo = NULL;
-nodo *aux = NULL;
-nodo *aux2 = NULL;
+    nodo *pInicio = NULL;
+    nodo *nuevo = NULL;
+    nodo *aux = NULL;
+    nodo *aux2 = NULL;
 
-int opcion=0;
-srand(time(NULL));
-int aleatorio=0;
+    int opcion=0;
+    srand(time(NULL));
+    int aleatorio=0;
 
-do{
-    Menu();
-    cin>>opcion;
+    do{
+        Menu();
+        cin>>opcion;
 
-    switch(opcion){
-        case 1:
-            nuevo = new nodo;
-            aleatorio = (rand()%100) + 1;
-            nuevo->numero = aleatorio;
-            nuevo->sig = NULL;
-            if(!pInicio){
-                pInicio = nuevo;
-            }
-            else{
-                aux = pInicio;
-                while(aux->sig != NULL){
-                    aux = aux->sig;
+        switch(opcion){
+            case 1:
+                nuevo = new nodo;
+                aleatorio = (rand()%100) + 1;
+                nuevo->numero = aleatorio;
+                nuevo->sig = NULL;
+                if(!pInicio){
+                    pInicio = nuevo;
                 }
-                aux->sig = nuevo;
-            }
+                else{
+                    aux = pInicio;
+                    while(aux->sig != NULL){
+                        aux = aux->sig;
+                    }
+                    aux->sig = nuevo;
+                }
 
-            break;
-        case 2:
-            MostrarLibros(pInicio);
-            break;
-        case 3:
-            MostrarPares(pInicio);
-            break;
-        case 4:
-            MostrarImpares(pInicio);
-            break;
-        case 5:
-            break;
+                break;
+            case 2:
+                MostrarLibros(pInicio);
+                break;
+            case 3:
+                MostrarPares(pInicio);
+                break;
+            case 4:
+                MostrarImpares(pInicio);
+                break;
+            case 5:
+                mostarInvertido(pInicio);
+                break;
+        }
+
+
     }
-
-
-}
-while(opcion !=0);
+    while(opcion !=0);
     return 0;
 }
 void Menu() {
@@ -102,5 +104,15 @@ void MostrarImpares(nodo *lista){
             cout<<"numero: "<<lista->numero<<endl;
         }
         MostrarImpares(lista->sig);
+    }
+}
+
+void mostarInvertido(nodo *lista){
+    if(!lista){
+        return;
+    }
+    else{
+        mostarInvertido(lista->sig);
+        cout<<"numero: "<<lista->numero<<endl;
     }
 }
