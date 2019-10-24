@@ -1,0 +1,86 @@
+Arbol 1 pag 20
+
+1) Cuales nodos son la raiz, ramas y hojas.
+
+Raiz: A
+Ramas: B, D, C, E
+Hojas: G, H, I, F
+
+2) Nivel de cada nodo
+
+niveles
+     0          A  
+     1     B        C
+     2  D        E     F  
+     3     G   H  I
+
+3)Profundidad, peso y orden de arbol
+
+Profundidad: 3
+Peso: 9
+Orden: 2
+
+4) Un sub arbol cualquiera
+
+          E
+       H   I
+
+5) Determine si es lleno o estricto
+
+No es un arbol lleno, ya que le faltan nodos
+
+6)Determine si es perfecto o completo
+
+No es un arbol perfecto, no todas las hojas
+terminan en el mismo nivel de profundidad
+
+7)Recorridos: pre-orden, post-orden e in-orden
+
+Pre-orden
+
+Arbol 2 pag 21
+
+1) Cuales nodos son la raiz, ramas y hojas.
+
+Raiz: A
+Ramas: B, C, D, E, F, G, H
+Hojas: I, J, K, L
+
+2) Nivel de cada nodo
+
+niveles
+     0                                  A  
+     1                B        
+     2          C               D  
+     3     E       F      G       H
+     4        I       J              K  L
+
+3)Profundidad, peso y orden de arbol
+
+Profundidad: 4
+Peso: 12
+Orden: 2
+
+4) Un sub arbol cualquiera
+
+          H
+       K   L
+
+5) Determine si es lleno o estricto
+
+No es un arbol lleno, ya que le faltan nodos
+
+6)Determine si es perfecto o completo
+
+ No es un arbol perfecto, no todas las hojas
+terminan en el mismo nivel de profundidad
+
+7)Recorridos: pre-orden, post-orden e in-orden
+
+Pre-orden
+
+
+
+
+
+
