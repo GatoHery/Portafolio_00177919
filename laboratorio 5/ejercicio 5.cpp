@@ -25,38 +25,13 @@ int main (){
     int opcion =0;
     int numero=0;
 
-    agregarNodo(&Inicio, 50);
-    agregarNodo(&Inicio, 25);
-    agregarNodo(&Inicio, 60);
-    agregarNodo(&Inicio, 15);
-    agregarNodo(&Inicio, 70);
+    agregarlista(&Inicio, 50);
+    agregarlista(&Inicio, 25);
+    agregarlista(&Inicio, 60);
+    agregarlista(&Inicio, 15);
+    agregarlista(&Inicio, 70);
 
-    do{
-        menu();
-        cin>>opcion;
-
-        switch(opcion){
-            case 1:
-                cout<<"digite numero a buscar "<<endl;
-                cin>>numero;
-                if(mostrarArbol(Inicio,numero) == true){
-                    agregarlista(&mlista, numero);
-                }
-                else{
-                    cout<<"nose encontro el valor"<<endl;
-                }
-                break;
-            case 2:
-                mostrarLista(mlista, 0);
-                break;
-            case 0:
-                break;
-            default:
-                cout<<"digite numero valido"<<endl;
-        }
-
-    }
-    while(opcion != 0);
+    mostrarLista(Inicio);
 
     return 0;
 }
